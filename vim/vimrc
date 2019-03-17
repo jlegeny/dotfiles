@@ -1,0 +1,194 @@
+if &compatible
+  set nocompatible
+endif
+
+call plug#begin('~/.vim/plugged')
+
+  " Commands
+  Plug 'rgarver/Kwbd.vim'
+  Plug 'danro/rename.vim'
+  "Plug 'osyo-manga/vim-over'
+  Plug 'jremmen/vim-ripgrep'
+  Plug 'ervandew/supertab'
+  
+  " Features
+  Plug 'w0rp/ale'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'easymotion/vim-easymotion'
+  "Plug 'Shougo/neocomplete.vim'
+  "Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'junegunn/fzf', { 'build' : './install -all', 'merged' : 0 }
+  Plug 'junegunn/fzf.vim', { 'depends' : 'fzf' }
+  Plug 'terryma/vim-multiple-cursors'
+
+  " LSP
+  "Plug 'prabirshrestha/async.vim'
+  "Plug 'prabirshrestha/vim-lsp'
+  "Plug 'Chilledheart/vim-clangd'
+  
+  " UI
+  Plug 'vim-airline/vim-airline'
+  Plug 'lirenlin/vim-numbertoggle'
+  Plug 'jlegeny/vim-plugins'
+  "Plug 'arakashic/chromatica.nvim'
+
+  " Colors
+  "Plug 'frankier/neovim-colors-solarized-truecolor-only'
+  "Plug 'Badacadabra/vim-archery'
+  "Plug 'baines/vim-colorscheme-thaumaturge'
+  "Plug 'mh21/errormarker.vim'
+
+  " Languages
+  "Plug 'pangloss/vim-javascript'
+  "Plug 'mxw/vim-jsx'
+  "Plug 'aklt/plantuml-syntax'
+  Plug 'keith/swift.vim'
+  "Plug 'dag/vim-fish'
+  "Plug 'vim-scripts/indentpython.vim'
+  "Plug 'davidhalter/jedi-vim'
+
+call plug#end()
+
+syntax on
+filetype plugin indent on
+
+set guioptions-=L
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set number
+set relativenumber
+set linebreak
+set signcolumn=yes
+
+" search
+set ignorecase
+set smartcase
+set incsearch
+
+" backspace
+
+set backspace=2
+
+" visual line movement
+"function! NoremapNormalCmd(key, preserve_omni, ...)
+  "let cmd = ''
+  "let icmd = ''
+  "for x in a:000
+    "let cmd .= x
+    "let icmd .= "<C-\\><C-O>" . x
+  "endfor
+  "execute ":nnoremap <silent> " . a:key . " " . cmd
+  "execute ":vnoremap <silent> " . a:key . " " . cmd
+  "if a:preserve_omni
+    "execute ":inoremap <silent> <expr> " . a:key . " pumvisible() ? \"" . a:key . "\" : \"" . icmd . "\""
+  "else
+    "execute ":inoremap <silent> " . a:key . " " . icmd
+  "endif
+"endfunction
+
+" Cursor moves by screen lines
+"call NoremapNormalCmd("<Up>", 1, "gk")
+"call NoremapNormalCmd("<Down>", 1, "gj")
+"call NoremapNormalCmd("<Home>", 0, "g<Home>")
+"call NoremapNormalCmd("<End>", 0, "g<End>")
+
+if has("vimr_gui")
+  set termguicolors
+endif
+
+if has("gui_running")
+  set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
+  set background=dark
+  colorscheme hybrid
+else
+  set background=dark
+  colorscheme hybrid
+endif
+
+" vim-numbertoggle
+let g:NumberToggleTrigger=""
+
+" vim-airline
+
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" jedi-vim
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "2"
+
+" ctrlp
+
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules|bower_components|dist|lib)$',
+  "\ 'file': '\v\.(exe|so|dll)$',
+  "\ 'link': 'some_bad_symbolic_links'
+  "\ }
+"
+"let g:ctrlp_working_path_mode=''
+let $FZF_DEFAULT_COMMAND = 'fd --type f --follow --exclude .git'
+if has("mac")
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+else
+  set guicursor=
+endif
+
+map <F3> :Buffers<CR>
+
+map <D-t> :CtrlPMRUFiles<CR>
+imap <D-t> <Esc>:CtrlPMRUFiles<CR>
+map <D-k> :Files<CR>
+imap <D-k> <Esc>:Files<CR>
+map <C-p> :Files<CR>
+imap <C-p> :Files<CR>
+
+nmap <C-h> :CtrlPMRUFiles<CR>
+
+" multi-cursor
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
+
+" easymotion
+
+nmap <Space> <Plug>(easymotion-s)
+
+" nerdcommenter
+nmap <C-/> <Plug>NERDCommenterToggle
+vmap <C-/> <Plug>NERDCommenterToggle gv
+
+" custom
+"let mapleader=","
+
+set pastetoggle=<F4>
+map <C-w>` :Kwbd<CR>
+nmap , gqap
+
+" GUI
+"if has("gui_macvim")
+"endif
+
+if has("vimr_gui")
+  nmap <D-M-Right> <C-w><Right>
+  nmap <D-M-Left> <C-w><Left>
+  nmap <D-M-Up> <C-w><Up>
+  nmap <D-M-Down> <C-w><Down>
+  imap <D-M-Right> <Esc><C-w><Right>i
+  imap <D-M-Left> <Esc><C-w><Left>i
+  imap <D-M-Up> <Esc><C-w><Up>i
+  imap <D-M-Down> <Esc><C-w><Down>i
+endif
+ 
+" fast scrolling
+
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+noremap <C-h> ^
+noremap <C-l> $
+
+" neovim specific
+"if has("nvim")
+"  let g:chromatica#libclang_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+"endif

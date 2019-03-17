@@ -1,0 +1,6 @@
+#compdef venv
+
+# _arguments "1: $(ls -1 ~/.virtualenvs)"
+cmds=($(ls -1 ~/.virtualenvs))
+_describe 'completion options' cmds
+
