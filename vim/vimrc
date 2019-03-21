@@ -60,7 +60,9 @@ set shiftwidth=2
 set number
 set relativenumber
 set linebreak
-set signcolumn=yes
+if exists("&signcolumn")
+  set signcolumn=yes
+endif
 
 " search
 set ignorecase
