@@ -5,7 +5,8 @@ if sysctl -n machdep.cpu.brand_string 2>/dev/null | grep "Core(TM)2 Duo" > /dev/
   export HOMEBREW_BUILD_FROM_SOURCE=1
 fi
 
-export TERM=xterm-256color
+[[ $TMUX != "" ]] && export TERM="tmux-256color"
+
 
 if [[ ${TERM_PROGRAM} = "DTerm" ]]; then
   ZSH_THEME="default"
@@ -113,7 +114,7 @@ POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
 POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time vi_mode virtualenv dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status root_indicator)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status command_execution_time root_indicator)
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=vcs
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=context
@@ -144,5 +145,8 @@ if [ -f ~/.fzf.zsh ]; then
 source ~/.fzf.zsh
 fi
 
-
-
+PATH="/home/yozy/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/yozy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/yozy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/yozy/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/yozy/perl5"; export PERL_MM_OPT;
