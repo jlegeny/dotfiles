@@ -306,7 +306,7 @@ settings = {
   "perl/core/scripts" = {
     awl_display_key = "$Q%K|%n$H$C$S";
     awl_block = "-4";
-    autoaway_timeout = "360";
+    autoaway_timeout = "500";
     neat_colors = "X40X66X60X46X4OX5UX6YX1OX4XX1QX3ZX1BX2HX4NX45X6MX7SX6Z";
   };
   "irc/dcc" = { dcc_autoget = "yes"; };
@@ -332,7 +332,9 @@ ignores = (
   { mask = "hybrid"; level = "JOINS PARTS QUITS"; },
   { mask = "pushblock"; level = "JOINS PARTS QUITS"; },
   { mask = "gonzalo"; level = "JOINS PARTS QUITS"; },
-  { mask = "___GOD___"; level = "ALL"; }
+  { mask = "___GOD_____"; level = "ALL"; },
+  { mask = "___GOD___"; level = "ALL"; },
+  { mask = "____GOD____"; level = "ALL"; }
 );
 hilights = (
   { text = "yoz"; nick = "yes"; word = "yes"; },
@@ -340,12 +342,11 @@ hilights = (
 );
 logs = { };
 windows = {
-  1 = {
+  1 = { 
     immortal = "yes";
     name = "(status)";
     level = "ALL";
     sticky = "yes";
-    parent = "6";
   };
   2 = {
     items = (
@@ -357,7 +358,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "6";
+    parent = "1";
   };
   3 = {
     immortal = "yes";
@@ -370,7 +371,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "6";
+    parent = "1";
   };
   4 = {
     immortal = "yes";
@@ -383,7 +384,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "6";
+    parent = "1";
   };
   5 = {
     items = (
@@ -395,7 +396,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "6";
+    parent = "1";
   };
   6 = {
     items = (
@@ -407,6 +408,7 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "1";
   };
   7 = {
     items = (
@@ -418,11 +420,31 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "6";
+    parent = "1";
   };
   8 = { immortal = "yes"; name = "hilight"; sticky = "yes"; };
+  9 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "MikeTradr";
+        tag = "Freenode";
+      }
+    );
+  };
+  10 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "absentia";
+        tag = "Freenode";
+      }
+    );
+  };
 };
 mainwindows = {
-  6 = { first_line = "7"; lines = "20"; };
-  8 = { first_line = "1"; lines = "6"; };
+  1 = { first_line = "8"; lines = "39"; };
+  8 = { first_line = "1"; lines = "7"; };
 };

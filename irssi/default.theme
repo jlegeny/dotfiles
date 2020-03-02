@@ -295,7 +295,7 @@ abstracts = {
 formats = {
   "fe-common/core" = {
     own_msg = "{ownmsgnick %p$2 {ownnick %p$[-9]0}}%P$1";
-    pubmsg = "{pubmsgnick %w$2 {pubnick $nickcolor$[-9]0}}%w$1";
+    pubmsg = "{pubmsgnick %W$2 {pubnick $nickcolor$[-9]0}}%W$1";
     timestamp = "{timestamp %K%%H%%M%w }";
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-9]2}}$1";
     msg_private_query = "{privmsgnick $[-9]0}$2";
@@ -303,7 +303,7 @@ formats = {
   };
   "fe-common/irc" = {
     own_action = "{ownaction %p$0}%P$1";
-    action_public = "{pubaction %g$0}%w$1";
+    action_public = "{pubaction %G$0}%W$1";
   };
 
   "fe-common/nick" = { away = "out"; unaway = "in"; };
