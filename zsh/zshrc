@@ -12,6 +12,7 @@ if [[ ${TERM_PROGRAM} = "DTerm" ]]; then
   ZSH_THEME="default"
 fi
 
+POWERLEVEL9K_MODE='nerdfont-complete'
 if [ -f "/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme" ]; then
   source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 else
