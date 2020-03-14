@@ -12,7 +12,12 @@ if [[ ${TERM_PROGRAM} = "DTerm" ]]; then
   ZSH_THEME="default"
 fi
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+if [ -f "/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme" ]; then
+  source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+else
+  ZSH_THEME="powerlevel9k/powerlevel9k"
+fi
+
 
 if [ -d "${HOME}/.oh-my-zsh" ]; then
   export ZSH="${HOME}/.oh-my-zsh"
