@@ -101,7 +101,7 @@ if has("vimr_gui")
 endif
 
 if has("gui_running")
-  set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
+  "set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
   set background=dark
   colorscheme hybrid
 else
