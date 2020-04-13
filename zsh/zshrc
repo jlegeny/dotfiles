@@ -1,5 +1,9 @@
-[[ -f "${HOME}/dotfiles/motd/${HOST//.home/}.txt" ]] && cat "${HOME}/dotfiles/motd/${HOST//.home/}.txt"
-[[ -f "${HOME}/dotfiles/motd/${HOST//.local/}.txt" ]] && cat "${HOME}/dotfiles/motd/${HOST//.local/}.txt"
+if [[ -f "${HOME}/dotfiles/motd/${HOST//.home/}.txt" ]]; then 
+  cat "${HOME}/dotfiles/motd/${HOST//.home/}.txt"
+elif [[ -f "${HOME}/dotfiles/motd/${HOST//.local/}.txt" ]]; then
+  cat "${HOME}/dotfiles/motd/${HOST//.local/}.txt"
+fi
+
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/opt/bin"
 
 if sysctl -n machdep.cpu.brand_string 2>/dev/null | grep "Core(TM)2 Duo" > /dev/null; then
