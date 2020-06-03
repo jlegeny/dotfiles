@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ervandew/supertab'
   
   " Features
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   Plug 'scrooloose/nerdcommenter'
   Plug 'easymotion/vim-easymotion'
   "Plug 'Shougo/neocomplete.vim'
@@ -42,7 +42,7 @@ call plug#begin('~/.vim/plugged')
   "Plug 'pangloss/vim-javascript'
   "Plug 'mxw/vim-jsx'
   "Plug 'aklt/plantuml-syntax'
-  Plug 'keith/swift.vim'
+  "Plug 'keith/swift.vim'
   "Plug 'dag/vim-fish'
   "Plug 'vim-scripts/indentpython.vim'
   "Plug 'davidhalter/jedi-vim'
@@ -190,6 +190,8 @@ noremap <C-k> <C-u>
 noremap <C-h> ^
 noremap <C-l> $
 
+let g:ale_linters = {'c': ['clang']}
+let g:ale_c_parse_compile_commands = 1
 " neovim specific
 "if has("nvim")
 "  let g:chromatica#libclang_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
