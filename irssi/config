@@ -166,6 +166,8 @@ aliases = {
   np = "lastfm yoz-y";
   u = "dau --uppercase $*";
   quit = "say moo";
+  glasses = "say (•_•) / ( •_•)>⌐■-■ / (⌐■_■)";
+  tthrw = "(╯°□°)╯︵ ┻━┻";
 };
 
 statusbar = {
@@ -306,8 +308,8 @@ settings = {
   "perl/core/scripts" = {
     awl_display_key = "$Q%K|%n$H$C$S";
     awl_block = "-4";
-    autoaway_timeout = "500";
-    neat_colors = "X40X66X60X46X4OX5UX6YX1OX4XX1QX3ZX1BX2HX4NX45X6MX7SX6Z";
+    autoaway_timeout = "300";
+    neat_colors = "X40X66X60X46X6DX6YX1OGX4XX1QX3ZX1BX2HX4NX45X6MX68X7SX6Z";
   };
   "irc/dcc" = { dcc_autoget = "yes"; };
 };
